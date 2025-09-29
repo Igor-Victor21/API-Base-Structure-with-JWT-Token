@@ -4,25 +4,17 @@ export default {
   // Criar usuário (já estava correto)
   create: async (req, res) => {
     try {
-      const { fullName, email,password, cpf, cep, address, complement, numberPhone, dateOfBirth } = req.body;
+      const { fullName, email,role } = req.body;
 
-      // 1. Validação dos campos obrigatórios
-      if (!fullName || !email || !cpf) {
-        return res.status(400).json({ error: 'Nome completo, email e CPF são obrigatórios' });
+      if (!fullName || !email || !role) {
+        return res.status(400).json({ error: 'Nome completo, email, senha e perfil (role) são obrigatórios' });
       }
 
       // 2. Cria o documento com tratamento seguro para campos opcionais
       const userData = {
         fullName,
         email,
-        password,
-        cpf,
-        cep: cep || null,           // Converte undefined para null
-        address: address || null,    // Garante que não será undefined
-        complement: complement || null,
-        numberPhone: numberPhone || null,
-        dateOfBirth: dateOfBirth ? new Date(dateOfBirth).toISOString().split('T')[0] : null
-        // createdAt: new Date().toISOString()
+        role,
       };
 
       // 4. Cria o usuário no Firestore
