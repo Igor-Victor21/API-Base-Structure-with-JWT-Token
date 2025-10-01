@@ -1,2 +1,4 @@
 # Complete-BackEnd-In-NodeJs
-API Completa com recurso de autenticação com o Google, além de rotas privadas com token de autenticação JWT
+- Um repositório base de uma API que se conecta com o banco de dados, além de criar um token do zero.
+- Será utilizado o MongoDB futuramente como banco de dados
+- Além de utilizar OAuth2 para fazer a autenticação com o google
